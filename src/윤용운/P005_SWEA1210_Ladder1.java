@@ -13,18 +13,26 @@ public class P005_SWEA1210_Ladder1 {
 		String input = "";
 		int startPos = 0, endPos = 0;
 
+		// input이 더이상 없을 때까지 작업 반복
 		while ((input = br.readLine()) != null) {
+			// 테스트케이스 번호 입력
 			int tc = Integer.parseInt(input);
+			
+			// 사다리 입력
 			for (int i = 0; i < 100; i++) {
+				//한줄씩 받으면서
 				st = new StringTokenizer(br.readLine());
 				for (int j = 0; j < 100; j++) {
+					// 하나씩 입력
 					map[i][j] = Integer.parseInt(st.nextToken());
 					if (map[i][j] == 2) {
+						// 출발점이 나오면 저장
 						startPos = j;
 					}
 				}
 			}
 
+			// 위에서 아래로 가는것이 보통이지만, 정답을 찾기 위해 아래에서 위로 검색
 			endPos = findStart(map, startPos);
 
 			System.out.println("#" + tc + " " + endPos);
@@ -32,41 +40,48 @@ public class P005_SWEA1210_Ladder1 {
 	}
 
 	static int findStart(int[][] map, int startPos) {
+		// 2가 입력된 x좌표
 		int x = startPos;
+		// 가장 아래에서 시작
 		int y = 99;
+		// true : 위로 올라감 / false : 좌우로 움직임
 		boolean isUp = true;
+		// true : 왼쪽으로 이동 / false : 오른쪽으로 이동
 		boolean isLeft = true;
 
+		// y좌표가 제일 위로 갈떄까지
 		while (y != 0) {
 
+			// 올라가는 상황
 			if (isUp) {
-				if (x + 1 < 100 && map[y][x + 1] == 1) {
+				if (x + 1 < 100 && map[y][x + 1] == 1) { // 오른쪽 길이 있으면
 					isLeft = false;
 					isUp = false;
-				} else if (x - 1 >= 0 && map[y][x - 1] == 1) {
+				} else if (x - 1 >= 0 && map[y][x - 1] == 1) { // 왼쪽 길이 있으면
 					isLeft = true;
 					isUp = false;
-				} else {
+				} else { // 둘다 없으면 그냥 위로 올라간다.
 					y--;
 				}
 			} else {
-				if (isLeft) {
+				if (isLeft) {	// 왼쪽으로 가는 경우
 					if (x - 1 >= 0 && map[y][x - 1] == 1) {
 						x--;
-					} else {
+					} else {	// 끝이면 한칸 올려준다.
 						isUp = true;
 						y--;
 					}
-				} else {
+				} else {	// 오른쪽으로 가는 경우
 					if (x + 1 < 100 && map[y][x + 1] == 1) {
 						x++;
-					} else {
+					} else {	// 끝이면 한칸 올려준다.
 						isUp = true;
 						y--;
 					}
 				}
 			}
 		}
+		// 가장 위쪽에 도착했을 때의 x값을 return 해준다.
 		return x;
 	}
 }
