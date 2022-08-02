@@ -5,7 +5,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
-public class P005_SWEA1210_Ladder1 {
+public class 사다리{
 
 	public static void main(String[] args) throws IOException {
 		boolean side = false;
@@ -33,6 +33,7 @@ public class P005_SWEA1210_Ladder1 {
 				}
 			} // 시작부를 설정해주는  for
 			
+
 			// 0보다 작아지거나 100 되면 인덱스 밖으로 나간 것.  data[h][w]
 			while(h>0) {
 				if(w-1 > 0 && w+1<100) {  //  가운데 사다리 기둥의 경우
@@ -88,7 +89,6 @@ public class P005_SWEA1210_Ladder1 {
 			} // while 문 끝
 			System.out.println("#"+n+" "+w);
 		}
-		br.close();
 	}
 	
 }
