@@ -21,6 +21,10 @@ public class P004_SWEA1208_Flatten {
 			}
 			Arrays.sort(arr);
 			while (dumpCount-- > 0) {
+				// 평탄화 완료
+				if (arr[99] == arr[0]) {
+					break;
+				}		
 				arr[99]--;
 				arr[0]++;
 				int start = 0;
