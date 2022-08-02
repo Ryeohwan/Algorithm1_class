@@ -10,6 +10,7 @@ public class P004_SWEA1208_Flatten {
 	public static void main(String args[]) throws Exception {
 		
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		StringBuilder sb = new StringBuilder();
 		StringTokenizer st;
 		
 		for (int test_case = 1; test_case <= 10; test_case++) {
@@ -59,7 +60,8 @@ public class P004_SWEA1208_Flatten {
 			// 완료 후 고저차 계산
 			int answer = arr[99] - arr[0];
 			// 출력
-			System.out.println("#" + test_case + " " + answer);
+			sb.append("#").append(test_case).append(" ").append(answer).append("\n");
 		}
+		System.out.println(sb);
 	}
 }
