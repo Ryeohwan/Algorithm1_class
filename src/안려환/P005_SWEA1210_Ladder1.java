@@ -1,16 +1,13 @@
 package 안려환;
 
-import java.io.BufferedInputStream;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.Scanner;
 import java.util.StringTokenizer;
 
 public class P005_SWEA1210_Ladder1 {
 
 	public static void main(String[] args) throws IOException {
-		int[] fini = new int[10];
 		boolean side = false;
 		boolean r_side = false;
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -26,7 +23,7 @@ public class P005_SWEA1210_Ladder1 {
 					data[i][j] = Integer.parseInt(st.nextToken());
 				}
 			}
-			
+//			br.readLine().split(" "); 로 로크나이저를 바꿔보자.
 			int w = 0;
 			int h = 99;  // 어차피 하나 올리고 나서 진행된다. 바닥에 도달하면 멈추기 때문이다.
 			
@@ -54,20 +51,22 @@ public class P005_SWEA1210_Ladder1 {
 							h -=1;
 							side = false;
 						}
-					}else {
-						if(data[h][w+1] == 1) {
+					}else {  // 위로 올라가는 경우
+						if(data[h][w+1] == 1) {  // 오른쪽이 1로 자리가 있는 경우
 							w += 1;
 							side = true;
-							r_side = true;
-						}else if (data[h][w-1] == 1) {
+							r_side = true;  // 우측으로 이동중인 것을 표시
+						}else if (data[h][w-1] == 1) {  // 왼쪽이 1로 자리가 있는 경우
 							w -= 1;
 							side = true;
-							r_side = false;
+							r_side = false;  // 좌측으로 이동중인 것을 표시
+						}else {
+							h-=1;   // 아니면 그냥 위로 올라간다.
 						}
 					}
 				}else {  // 벽쪽의 사다리일 때
-					if(w-1 < 0) {
-						if(data[h][w+1] == 1) {
+					if(w-1 < 0) {  // 좌측 벽쪽의 사다리
+						if(data[h][w+1] == 1) {  // 우측에 자리가 있으면 이동합니다.
 							w += 1;
 							side = true;
 							r_side = true;
@@ -75,8 +74,8 @@ public class P005_SWEA1210_Ladder1 {
 							h -= 1;
 							side = false;
 						}
-					}else if(w+1 == 100) {
-						if (data[h][w-1] == 1) {
+					}else if(w+1 == 100) {  // 우측 벽쪽의 사다리
+						if (data[h][w-1] == 1) {  // 좌측에 다리가 있으면 이동합니다.
 							w -= 1;
 							side = true;
 							r_side = false;
@@ -87,12 +86,9 @@ public class P005_SWEA1210_Ladder1 {
 					}
 				}
 			} // while 문 끝
-			fini[test] = w;
+			System.out.println("#"+n+" "+w);
 		}
 		
-		for(int i = 0; i<10;i++) {  // 출력부
-			System.out.println("#"+(i+1)+" "+fini[i]);
-		}
 	}
 	
 }
