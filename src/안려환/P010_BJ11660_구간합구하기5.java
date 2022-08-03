@@ -42,15 +42,15 @@ public class P010_BJ11660_구간합구하기5 {
 		        int ei = Integer.parseInt(st.nextToken()) -1;
 		        int ej = Integer.parseInt(st.nextToken()) -1;
 		        
-		        for(int i = si;i<=ei;i++) {
+		        for(int i = si;i<=ei;i++) {  // 사각형을 그렸을 때 좌측 끝에서 우측 끝까지 반복
 		        	if(sj == 0) {
 		        		num = num + arr[i][ej];
 		        	}else {
-		        		num = num + arr[i][ej] - arr[i][sj-1];
+		        		num = num + arr[i][ej] - arr[i][sj-1];  // sj-1 을 해야 sj부터의 값을 더해줄 수 있다.
 		        	}
 		        }
 		        
-		        sb.append(num).append("\n");
+		        sb.append(num).append("\n");  // StringBuilder 를 사용해서 해야 시간초과가 나지 않는다.
 		        
 		    }
 		System.out.println(sb);
