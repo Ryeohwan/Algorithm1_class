@@ -18,7 +18,7 @@ public class P013_SWEA1225_암호생성기 {
 		while((input = br.readLine()) != null) {
 			int tc = Integer.parseInt(input);
 			String[] pw = br.readLine().split(" ");
-			int step = 1;
+			int step = 0;
 			
 			// 큐에 값 입력
 			for (int i = 0; i < pw.length; i++) {
@@ -27,6 +27,8 @@ public class P013_SWEA1225_암호생성기 {
 			
 			// 하나가 0될떄까지 반복
 			while(true) {
+				// 1 2 3 4 5 순으로 계속 반복
+				step = step % 5 + 1;
 				// 첫번째꺼 뽑아서
 				int tmp = que.poll();
 				
@@ -37,8 +39,6 @@ public class P013_SWEA1225_암호생성기 {
 				} else { // 아니면 반복
 					que.add(tmp - step);
 				}
-				// 1 2 3 4 5 순으로 계속 반복
-				step = step++ % 5 + 1;
 			}
 			
 			// 출력값 StringBuilder에 입력
