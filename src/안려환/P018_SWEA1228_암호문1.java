@@ -18,10 +18,12 @@ public class P018_SWEA1228_암호문1 {
 			list.add(Integer.parseInt(st.nextToken()));
 		}
 		for(int test = 1; test<11;test++) {
+			LinkedList<String> list2 = new LinkedList<>();
 			int n = Integer.parseInt(br.readLine());
 			st = new StringTokenizer(br.readLine()," ");
 			int check = 0;
 			while (check < n) {
+				if(st.nextToken() == "|") check += 1;
 				
 			}
 		}
