@@ -2840,7 +2840,7 @@
   <commands xmi:id="_EvLg4RH1Ee2E2_4O35reZw" elementId="org.eclipse.jpt.jpa.ui.xmlFileUpgradeToLatestVersion" commandName="Upgrade JPA Document Version" category="_EvHOaBH1Ee2E2_4O35reZw"/>
   <commands xmi:id="_EvLg4hH1Ee2E2_4O35reZw" elementId="org.eclipse.ui.edit.text.scroll.lineDown" commandName="Scroll Line Down" description="Scroll down one line of text" category="_EvHOUxH1Ee2E2_4O35reZw"/>
   <commands xmi:id="_EvLg4xH1Ee2E2_4O35reZw" elementId="org.eclipse.wst.sse.ui.search.find.occurrences" commandName="Occurrences in File" description="Find occurrences of the selection in the file" category="_EvHOUBH1Ee2E2_4O35reZw"/>
-  <commands xmi:id="_EvLg5BH1Ee2E2_4O35reZw" elementId="org.eclipse.ui.ToggleCoolbarAction" commandName="Toggle Main Toolbar Visibility" description="Toggles the visibility of the window toolbar" category="_EvHOWxH1Ee2E2_4O35reZw"/>
+  <commands xmi:id="_EvLg5BH1Ee2E2_4O35reZw" elementId="org.eclipse.ui.ToggleCoolbarAction" commandName="Toggle toss.Solution1 Toolbar Visibility" description="Toggles the visibility of the window toolbar" category="_EvHOWxH1Ee2E2_4O35reZw"/>
   <commands xmi:id="_EvLg5RH1Ee2E2_4O35reZw" elementId="org.eclipse.wst.jsdt.ui.navigate.open.type.in.hierarchy" commandName="Open Type in Hierarchy" description="Open a type in the type hierarchy view" category="_EvHOchH1Ee2E2_4O35reZw"/>
   <commands xmi:id="_EvLg5hH1Ee2E2_4O35reZw" elementId="org.eclipse.wst.sse.ui.outline.customFilter" commandName="&amp;Filters" category="_EvHOaBH1Ee2E2_4O35reZw"/>
   <commands xmi:id="_EvLg5xH1Ee2E2_4O35reZw" elementId="org.eclipse.datatools.sqltools.sqlscrapbook.commands.openscrapbook" commandName="Open SQL Scrapboo&amp;k" category="_EvHOaBH1Ee2E2_4O35reZw"/>
