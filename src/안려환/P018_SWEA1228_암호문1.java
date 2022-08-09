@@ -10,22 +10,21 @@ public class P018_SWEA1228_암호문1 {
 
 	public static void main(String[] args) throws NumberFormatException, IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-		int N = Integer.parseInt(br.readLine());
-		LinkedList<Integer> list = new LinkedList<>();
+		
 		StringTokenizer st;
-		st = new StringTokenizer(br.readLine()," ");
-		for(int i = 0; i<N;i++) {
-			list.add(Integer.parseInt(st.nextToken()));
-		}
+		
 		for(int test = 1; test<11;test++) {
+			int N = Integer.parseInt(br.readLine());
+			LinkedList<Integer> list = new LinkedList<>();
+			st = new StringTokenizer(br.readLine()," ");
+			for(int i = 0; i<N;i++) {
+				list.add(Integer.parseInt(st.nextToken()));
+			}
 			LinkedList<String> list2 = new LinkedList<>();
 			int n = Integer.parseInt(br.readLine());
-			st = new StringTokenizer(br.readLine()," ");
+			st = new StringTokenizer(br.readLine(),"|");
 			int check = 0;
-			while (check < n) {
-				if(st.nextToken() == "|") check += 1;
-				
-			}
+			
 		}
 
 	}
