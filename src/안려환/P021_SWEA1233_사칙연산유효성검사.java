@@ -39,7 +39,7 @@ import java.util.StringTokenizer;
 //			
 //		}
 //	}
-//}
+//} 문제 이해가 잘 안돼서 너무 오래걸렸읍니다....
 
 public class P021_SWEA1233_사칙연산유효성검사 {
 	public static void main(String[] args) {
