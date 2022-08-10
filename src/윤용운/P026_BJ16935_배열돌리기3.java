@@ -1,9 +1,9 @@
-package 안려환;
+package 윤용운;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.*;
+import java.util.Stack;
 
 public class P026_BJ16935_배열돌리기3 {
 	static int [][] arr;
