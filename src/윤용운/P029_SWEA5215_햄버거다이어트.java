@@ -17,20 +17,20 @@ public class P029_SWEA5215_햄버거다이어트 {
 			int L = Integer.parseInt(input[1]);
 			int max = 0;
 
-			int[] v = new int[N + 1];
-			int[] w = new int[N + 1];
+			int[] score = new int[N + 1];
+			int[] kal = new int[N + 1];
 			int[][] dp = new int[N + 1][L + 1];
 			
 			for (int i = 1; i <= N; i++) {
 				input = br.readLine().split(" ");
-				v[i] = Integer.parseInt(input[0]);
-				w[i] = Integer.parseInt(input[1]);
+				score[i] = Integer.parseInt(input[0]);
+				kal[i] = Integer.parseInt(input[1]);
 			}
 			
 			for (int i = 1; i <= N; i++) {
 				for (int j = 1; j < L; j++) {
-					if (w[i] <= j) {
-						dp[i][j] = Math.max(v[i] + dp[i - 1][j - w[i]], dp[i - 1][j]);
+					if (kal[i] <= j) {
+						dp[i][j] = Math.max(score[i] + dp[i - 1][j - kal[i]], dp[i - 1][j]);
 					} else {
 						dp[i][j] = dp[i - 1][j];
 					}
