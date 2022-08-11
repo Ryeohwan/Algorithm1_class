@@ -26,14 +26,14 @@ public class P029_SWEA5215_햄버거다이어트 {
 			isVisited = new boolean[N];
 			for (int i = 0; i < N; i++) {
 				String [] kp = br.readLine().split(" ");
-				pref[i] = Integer.parseInt(nl[0]);
-				kal[i] = Integer.parseInt(nl[1]);
+				pref[i] = Integer.parseInt(kp[0]);
+				kal[i] = Integer.parseInt(kp[1]);
 			} // 입력부 마무리
-			
-			
-			sb.append("#").append(test).append(" ");
-			System.out.print(sb);
 			recursion(kal,pref,0,0,L);
+			
+			
+			sb.append("#").append(test).append(" ").append(max).append("\n");
+			System.out.print(sb);
 		}
 
 	}
@@ -43,7 +43,7 @@ public class P029_SWEA5215_햄버거다이어트 {
 		for (int i = 0; i < kal.length; i++) {
 			if(!isVisited[i]) {
 				if(total_kal + kal[i]> L) {
-					max = total_pref;
+					max = Math.max(max, total_pref);
 				}else {
 					isVisited[i] = true;
 					recursion(kal,pref, total_kal + kal[i], total_pref + pref[i], L);
@@ -52,7 +52,6 @@ public class P029_SWEA5215_햄버거다이어트 {
 				
 			}
 		}
-		System.out.print(max);
 	}
 
 }
