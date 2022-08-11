@@ -30,7 +30,7 @@ public class P029_SWEA5215_햄버거다이어트 {
 				int totalScore = 0;
 				int totalCal = 0;
 				for (int j = 0; j < N; j++) {
-					if ((i & (1 << j)) != 0) {
+					if ((i & (1 << j)) != 0) { // 쉬프트 연산 후 i 와 & 연산을 이면 i 가 그 자리에 있다면
 						totalScore += score[j];
 						totalCal += cal[j];
 					}
