@@ -6,7 +6,7 @@ import java.util.Arrays;
 
 public class P042_BJ3109_빵집 {
 	static char [][] map;
-	static int starti = 0, startj = 0;
+	static int starti = 0, startj = 0, cnt = 0;
 	static int C;
 	public static void main(String[] args) throws Exception{
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -38,13 +38,18 @@ public class P042_BJ3109_빵집 {
 	}
 	
 	public static void setLocation(int starti,int startj) {
-		if (startj == C)
+		if (startj == C) {
+			cnt ++;
+			starti = 0;
+			startj = 0;
+		}
 		switch(isAvailable(starti,startj)) {
+		case 0:
+			setLocation(starti+1,startj);
+			break;
 		case 1:
-			
+			setLocation(starti,startj+1);
 		}
 	}
 
 }
-
-
