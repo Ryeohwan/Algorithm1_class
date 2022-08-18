@@ -22,23 +22,23 @@ public class P042_BJ3109_빵집 {
             map[i] = br.readLine().toCharArray();
         }
         for (int i = 0; i < R; i++) {
-            solve(i, 0);
+            if(solve(i, 0)) {
+                answer++;
+            }
         }
 
         System.out.println(answer);
     }
 
     static boolean solve(int i, int j) {
+        map[i][j] = '/';
         if (j == C - 1) {
-            answer++;
-            map[i][j] = '/';
             return true;
         }
 
         for (int dir = 0; dir < 3; dir++) {
             if (i + di[dir] >= 0 && i + di[dir] < R && map[i + di[dir]][j + dj[dir]] == '.'){
                 if (solve(i + di[dir], j + dj[dir])) {
-                    map[i][j] = '/';
                     return true;
                 }
             }
