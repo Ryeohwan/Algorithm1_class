@@ -7,11 +7,11 @@ import java.util.Queue;
 import java.util.StringTokenizer;
 
 public class P049_SWEA1238_Contact {
-	 static int N;
-	   static int[][] graph;
-	   static int[] visited;
+	 	static int N;
+	 	static int[][] graph;
+	 	static int[] visited;
 	 
-	   public static void main(String[] args) throws Exception {
+	 	public static void main(String[] args) throws Exception {
 	      BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
 	      StringTokenizer st;
 	      StringBuilder sb = new StringBuilder();
