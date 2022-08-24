@@ -9,60 +9,42 @@ import java.util.StringTokenizer;
 
 public class P056_BJ7576_토마토 {
     static class Pair {
+        int i, j, day;
 
-        int x;
-        int y;
-
-        public Pair(int x, int y) {
-            this.x = x;
-            this.y = y;
-        }
-
-        public int geti() {
-            return x;
-        }
-
-        public int getj() {
-            return y;
+        public Pair(int i, int j, int day) {
+            this.i = i;
+            this.j = j;
+            this.day = day;
         }
     }
-    static int N, M;
-    static int[][] graph = new int[1001][1001];
+    static int N, M, count = 0;
+    static int[][] graph;
     static Queue<Pair> que = new LinkedList<>();
     static int[] di = {1, -1, 0, 0};
     static int[] dj = {0, 0, 1, -1};
 
     static int bfs() {
-        int ans = 1;
+        int answer = 0;
         while (!que.isEmpty()) {
             Pair thisPair = que.poll();
-            int i = thisPair.geti();
-            int j = thisPair.getj();
+            if (thisPair.day > answer) {
+                answer = thisPair.day;
+            }
             for (int k = 0; k < 4; k++) {
-                int nexti = i + di[k];
-                int nextj = j + dj[k];
+                int nexti = thisPair.i + di[k];
+                int nextj = thisPair.j + dj[k];
 
-                if (nexti < 1 || nextj < 1 || nexti > N || nextj > M || graph[nexti][nextj] != 0) {
-                    continue;
-                }
-
-                if (graph[nexti][nextj] == 0) {
-                    que.add(new Pair(nexti, nextj));
-                    graph[nexti][nextj] = graph[i][j] + 1;
-                    ans = graph[nexti][nextj];
+                if (nexti >= 0 && nextj >= 0 && nexti < N && nextj < M && graph[nexti][nextj] == 0) {
+                    que.add(new Pair(nexti, nextj, thisPair.day + 1));
+                    graph[nexti][nextj] = 1;
+                    count++;
                 }
             }
         }
-
-        for (int i = 1; i <= N; i++) {
-            for (int j = 1; j < M; j++) {
-                if (graph[i][j] == 0) {
-                    return -1;
-                }
-            }
+        if (count < N * M) {
+            return -1;
         }
-
-        return ans - 1;
+        return answer;
     }
 
     public static void main(String[] args) throws IOException {
@@ -70,13 +52,16 @@ public class P056_BJ7576_토마토 {
         StringTokenizer st = new StringTokenizer(bf.readLine());
         M = Integer.parseInt(st.nextToken());
         N = Integer.parseInt(st.nextToken());
-
-        for (int i = 1; i <= N; i++) {
+        graph = new int[N][M];
+        for (int i = 0; i < N; i++) {
             st = new StringTokenizer(bf.readLine());
-            for (int j = 1; j <= M; j++) {
+            for (int j = 0; j < M; j++) {
                 graph[i][j] = Integer.parseInt(st.nextToken());
                 if (graph[i][j] == 1) {
-                    que.add(new Pair(i, j));
+                    que.add(new Pair(i, j, 0));
+                    count++;
+                } else if (graph[i][j] == -1) {
+                    count++;
                 }
             }
         }
