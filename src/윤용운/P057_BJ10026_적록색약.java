@@ -13,14 +13,6 @@ public class P057_BJ10026_적록색약 {
             this.i = i;
             this.j = j;
         }
-
-        public int getI(){
-            return i;
-        }
-
-        public int getJ(){
-            return j;
-        }
     }
     static boolean[][] visited = new boolean[100][100];
     static String[][] graph = new String[100][100];
@@ -33,8 +25,8 @@ public class P057_BJ10026_적록색약 {
         visited[i][j] = true;
         while(!queue.isEmpty()){
             Node node = queue.poll();
-            int thisI = node.getI();
-            int thisJ = node.getJ();
+            int thisI = node.i;
+            int thisJ = node.j;
             String thisRGB = graph[thisI][thisJ];
 
             for(int k=0;k<4;k++){
@@ -59,8 +51,8 @@ public class P057_BJ10026_적록색약 {
         visited[i][j] = false;
         while(!queue.isEmpty()){
             Node node = queue.poll();
-            int thisI = node.getI();
-            int thisJ = node.getJ();
+            int thisI = node.i;
+            int thisJ = node.j;
             String thisRGB = graph[thisI][thisJ];
 
             for(int k=0;k<4;k++){

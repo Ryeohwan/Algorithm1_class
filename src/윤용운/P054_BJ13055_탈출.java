@@ -52,12 +52,14 @@ public class P054_BJ13055_탈출 {
             }
         }
 
+        //
         while (!route.isEmpty() && !isEnd) {
             // 물 퍼트리기
             while (!water.isEmpty() && water.peek().time == time) {
                 Pos w = water.poll();
 
                 for (int i = 0; i < 4; i++) {
+                    // 이동 가능한 경로 : . , S
                     if (w.i + di[i] >= 0 && w.i + di[i] < R && w.j + dj[i] >= 0 && w.j + dj[i] < C
                         && (map[w.i + di[i]][w.j + dj[i]] == '.' || map[w.i + di[i]][w.j + dj[i]] == 'S')) {
 
@@ -67,15 +69,17 @@ public class P054_BJ13055_탈출 {
                 }
             }
 
+            // 고슴도치 이동
             while (!route.isEmpty() && route.peek().time == time) {
                 Pos r = route.poll();
-
+                // 목적지이면 끝내기
                 if (map[r.i][r.j] == 'D') {
                     isEnd = true;
                     break;
                 }
 
                 for (int i = 0; i < 4; i++) {
+                    // 이동 가능한 경로 : . , D
                     if (r.i + di[i] >= 0 && r.i + di[i] < R && r.j + dj[i] >= 0 && r.j + dj[i] < C
                         && (map[r.i + di[i]][r.j + dj[i]] == '.' || map[r.i + di[i]][r.j + dj[i]] == 'D')) {
 
@@ -86,13 +90,10 @@ public class P054_BJ13055_탈출 {
                     }
                 }
             }
+            // 시간 증가
             time++;
         }
 
-        if (isEnd) {
-            System.out.println(time - 1);
-        } else {
-            System.out.println("KAKTUS");
-        }
+        System.out.println(isEnd ? time - 1 : "KAKTUS");
     }
 }
