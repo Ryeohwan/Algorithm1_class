@@ -38,7 +38,9 @@ public class P062_SWEA_4013_특이한자석 {
 
             int answer = 0;
             for(int i = 0; i < 4; i++) {
-                answer += gears[i][0] * (int)Math.pow(2, i);
+                if (gears[i][0] == 1) {
+                    answer += 1 << i;
+                }
             }
 
             sb.append("#").append(tc).append(" ").append(answer).append("\n");
